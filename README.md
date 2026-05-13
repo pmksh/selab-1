@@ -99,6 +99,11 @@ The review of the pull request can be seen in the picture below. This was during
 
 ![pull merge](report/pull-request-index-main.png)
 
+Here is how it looks when a pull request review is submitted:
+
+![review](report/review.png)
+![review 2](report/review2.png)
+
 
 ## Github Pages Deployment
 
@@ -117,3 +122,346 @@ To track progress and manage development, we created a project and organized the
 ![kanban board 2](report/kanban2.png)
 - Kanban board during testing roger
 ![kanban board 3](report/kanban3.png)
+
+
+# Answers to Questions
+
+## What is the `.git` folder? What information is stored in it? How is it created?
+
+The `.git` folder is the core directory of a Git repository. It contains all the data and metadata required for version control and is usually located in the root directory of a project as a hidden folder.
+
+Important information stored inside `.git` includes:
+
+- Commit history
+- Branch information
+- Repository configuration
+- Remote repository URLs
+- Tags
+- Git objects and snapshots
+- Logs and references
+- Staging area (index)
+
+If the `.git` folder is deleted, the project will no longer be recognized as a Git repository, and all version history will be lost.
+
+The `.git` folder is created using the following command:
+
+```bash
+git init
+```
+
+---
+
+## What does “atomic” mean in atomic commit and atomic pull request?
+
+Atomic means that a change should represent one complete and independent unit of work.
+
+### Atomic Commit
+
+An atomic commit:
+
+- Contains only one logical change
+- Avoids mixing unrelated modifications
+- Makes debugging and reverting easier
+- Improves readability of project history
+
+Examples:
+
+- One commit for fixing a bug
+- One commit for adding a feature
+- One commit for refactoring code
+
+### Atomic Pull Request
+
+An atomic pull request:
+
+- Focuses on a single feature or issue
+- Does not include unrelated changes
+- Makes code review easier
+- Reduces merge conflicts and confusion
+
+---
+
+## Difference between `fetch`, `pull`, `merge`, `rebase`, and `cherry-pick`
+
+### `git fetch`
+
+Downloads updates from the remote repository but does not modify the current working branch.
+
+```bash
+git fetch
+```
+
+Features:
+
+- Retrieves new commits and references
+- Does not merge changes automatically
+- Safe for checking updates before integration
+
+---
+
+### `git pull`
+
+Fetches updates from the remote repository and then merges them into the current branch.
+
+```bash
+git pull
+```
+
+Equivalent to:
+
+```bash
+git fetch
+git merge
+```
+
+Features:
+
+- Updates the local branch directly
+- Combines fetching and merging in one command
+
+---
+
+### `git merge`
+
+Combines changes from another branch into the current branch.
+
+```bash
+git merge branch-name
+```
+
+Features:
+
+- Preserves branch history
+- May create a merge commit
+- Commonly used in collaborative workflows
+
+---
+
+### `git rebase`
+
+Moves or reapplies commits from one branch onto another base commit.
+
+```bash
+git rebase main
+```
+
+Features:
+
+- Produces a cleaner and linear history
+- Rewrites commit history
+- Often used before merging feature branches
+
+---
+
+### `git cherry-pick`
+
+Applies a specific commit from another branch to the current branch.
+
+```bash
+git cherry-pick commit-hash
+```
+
+Features:
+
+- Selectively copies commits
+- Useful when only one change is needed
+- Avoids merging an entire branch
+
+---
+
+## Difference between `reset`, `revert`, `restore`, `switch`, and `checkout`
+
+### `git reset`
+
+Moves the current branch pointer (HEAD) and can modify the staging area or working directory.
+
+```bash
+git reset HEAD~1
+```
+
+Common uses:
+
+- Removing commits
+- Unstaging files
+- Rewriting local history
+
+---
+
+### `git revert`
+
+Creates a new commit that reverses the effects of a previous commit.
+
+```bash
+git revert commit-id
+```
+
+Features:
+
+- Safe for shared repositories
+- Preserves project history
+- Does not delete commits
+
+---
+
+### `git restore`
+
+Restores files to a previous state.
+
+```bash
+git restore file.txt
+```
+
+Common uses:
+
+- Discarding local changes
+- Recovering files from commits or staging area
+
+---
+
+### `git switch`
+
+Used for switching between branches.
+
+```bash
+git switch dev
+```
+
+Features:
+
+- Modern alternative for branch switching
+- Simpler and more focused than checkout
+
+---
+
+### `git checkout`
+
+An older multi-purpose command used for:
+
+- Switching branches
+- Restoring files
+- Navigating commits
+
+```bash
+git checkout branch-name
+```
+
+Features:
+
+- Powerful but sometimes confusing
+- Partially replaced by `switch` and `restore`
+
+---
+
+## What is the stage (index)? What does the `stash` command do?
+
+### Stage / Index
+
+The staging area (also called the index) is an intermediate area between the working directory and the repository history.
+
+Workflow:
+
+```text
+Working Directory -> Staging Area (Index) -> Commit
+```
+
+When a file is added using:
+
+```bash
+git add file.txt
+```
+
+the file moves into the staging area and becomes ready for the next commit.
+
+Purpose of staging:
+
+- Selectively choose changes for commits
+- Organize commits more cleanly
+- Review changes before committing
+
+---
+
+### `git stash`
+
+Temporarily saves uncommitted changes so the working directory becomes clean.
+
+```bash
+git stash
+```
+
+To restore the saved changes:
+
+```bash
+git stash pop
+```
+
+Common uses:
+
+- Switching branches without committing unfinished work
+- Saving temporary progress
+- Cleaning the workspace quickly
+
+---
+
+## What does snapshot mean? What is its relationship with commits?
+
+In Git, every commit represents a snapshot of the project at a specific moment in time.
+
+Unlike some version control systems that store only file differences, Git stores a snapshot of the entire project state for each commit.
+
+Features of snapshots:
+
+- Capture the state of files at a specific time
+- Allow restoring previous versions
+- Form the basis of Git history
+
+Relationship with commits:
+
+- Each commit creates a new snapshot
+- Commits are linked to previous snapshots
+- Together they form the repository history
+
+---
+
+## Difference between local repository and remote repository
+
+### Local Repository
+
+A local repository exists on the developer’s own computer.
+
+Features:
+
+- Stores local commits and branches
+- Works without internet access
+- Main development usually happens here
+
+Example:
+
+```bash
+git init
+```
+
+---
+
+### Remote Repository
+
+A remote repository is hosted on a server or platforms such as GitHub, GitLab, or Bitbucket.
+
+Features:
+
+- Used for collaboration
+- Shared among team members
+- Supports push and pull operations
+
+Example of adding a remote repository:
+
+```bash
+git remote add origin <repository-url>
+```
+
+Common remote operations:
+
+```bash
+git push
+git pull
+git fetch
+```
