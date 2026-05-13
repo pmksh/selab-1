@@ -110,3 +110,10 @@ Made using the static html option, it was merged into main after review.
 ![pages](report/static-yml.png)
 
 ## Kanban Board and Project Progress
+To track progress and manage development, we created a project and organized the tasks in a kanban board. Some snapshots of the kanban board are as follows.
+- Kanban board during the development of the landing page
+![kanban board 1](report/kanban1.png)
+- Kanban board during the development of review and roger pages
+![kanban board 2](report/kanban2.png)
+- Kanban board during testing roger
+![kanban board 3](report/kanban3.png)
