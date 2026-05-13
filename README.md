@@ -57,10 +57,31 @@ This repository has 8 branches.
 
 ## Conflicts
 
+1. The first conflict occured while merging the index branch. The class field in the navbar wa not present in one side of the conflict and the order of the links were different. The conflict was resolved in favor of the commit where the class field was present.
+![index merge conflict](report/merge-index-conflict.png)
+as can be seen in the picture above.
+
+2. The second conflict occured while merging the roger branch. We both had changed the css file in parallel. The conflict was resolved by accepting both changes. This resolution was done in github.
+![roger merge conflict](report/merge-roger-conflict.png)
+as can be seen in the picture above.
 
 ## Main Branch Protection
 
+For this requirement we have set the rule to require a pull request before merging along with at least 1 approval from an admin.
+![require pull](report/require-pull.png)
+
+The review of the pull request can be seen in the picture below. This was during the index merge with main.
+
+![pull merge](report/pull-request-index-main.png)
+
 
 ## Github Pages Deployment
+
+Github pages was also created and deployed in github actions in the following url:
+https://pmksh.github.io/selab-1/
+
+![pages](report/pages.png)
+Made using the static html option, it was merged into main after review.
+![pages](report/static-yml.png)
 
 ## Kanban Board and Project Progress
