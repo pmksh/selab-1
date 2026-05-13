@@ -17,6 +17,10 @@
 <p align="center">
   <a href="#overview">Overview</a> •
   <a href="#branches">Branches</a> •
+  <a href="#conflicts">Conflicts</a> •
+  <a href="#main-branch-protection">Main Branch Protection</a> •
+  <a href="#github-pages-deployment">Github Pages Deployment</a> •
+  <a href="#kanban-board-and-project-progress">Kanban Board and Project Progress</a>
 </p>
 
 ## Overview
@@ -47,3 +51,16 @@ This repository has 8 branches.
 
     ![review branch commits](report/review-commits.png)
     This branch was developed in parallel with the roger branch.
+
+1. Roger: 
+
+
+## Conflicts
+
+
+## Main Branch Protection
+
+
+## Github Pages Deployment
+
+## Kanban Board and Project Progress
